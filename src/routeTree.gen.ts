@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExcecoesRouteImport } from './routes/excecoes'
+import { Route as ImportacoesRouteImport } from './routes/importacoes'
+import { Route as ProjecoesRouteImport } from './routes/projecoes'
+import { Route as RecebiveisRouteImport } from './routes/recebiveis'
+import { Route as VendasRouteImport } from './routes/vendas'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExcecoesRoute = ExcecoesRouteImport.update({
+  id: '/excecoes',
+  path: '/excecoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImportacoesRoute = ImportacoesRouteImport.update({
+  id: '/importacoes',
+  path: '/importacoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjecoesRoute = ProjecoesRouteImport.update({
+  id: '/projecoes',
+  path: '/projecoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecebiveisRoute = RecebiveisRouteImport.update({
+  id: '/recebiveis',
+  path: '/recebiveis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VendasRoute = VendasRouteImport.update({
+  id: '/vendas',
+  path: '/vendas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/excecoes': typeof ExcecoesRoute
+  '/importacoes': typeof ImportacoesRoute
+  '/projecoes': typeof ProjecoesRoute
+  '/recebiveis': typeof RecebiveisRoute
+  '/vendas': typeof VendasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/excecoes': typeof ExcecoesRoute
+  '/importacoes': typeof ImportacoesRoute
+  '/projecoes': typeof ProjecoesRoute
+  '/recebiveis': typeof RecebiveisRoute
+  '/vendas': typeof VendasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/excecoes': typeof ExcecoesRoute
+  '/importacoes': typeof ImportacoesRoute
+  '/projecoes': typeof ProjecoesRoute
+  '/recebiveis': typeof RecebiveisRoute
+  '/vendas': typeof VendasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/excecoes'
+    | '/importacoes'
+    | '/projecoes'
+    | '/recebiveis'
+    | '/vendas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/excecoes'
+    | '/importacoes'
+    | '/projecoes'
+    | '/recebiveis'
+    | '/vendas'
+  id:
+    | '__root__'
+    | '/'
+    | '/excecoes'
+    | '/importacoes'
+    | '/projecoes'
+    | '/recebiveis'
+    | '/vendas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExcecoesRoute: typeof ExcecoesRoute
+  ImportacoesRoute: typeof ImportacoesRoute
+  ProjecoesRoute: typeof ProjecoesRoute
+  RecebiveisRoute: typeof RecebiveisRoute
+  VendasRoute: typeof VendasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/excecoes': {
+      id: '/excecoes'
+      path: '/excecoes'
+      fullPath: '/excecoes'
+      preLoaderRoute: typeof ExcecoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/importacoes': {
+      id: '/importacoes'
+      path: '/importacoes'
+      fullPath: '/importacoes'
+      preLoaderRoute: typeof ImportacoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projecoes': {
+      id: '/projecoes'
+      path: '/projecoes'
+      fullPath: '/projecoes'
+      preLoaderRoute: typeof ProjecoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recebiveis': {
+      id: '/recebiveis'
+      path: '/recebiveis'
+      fullPath: '/recebiveis'
+      preLoaderRoute: typeof RecebiveisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vendas': {
+      id: '/vendas'
+      path: '/vendas'
+      fullPath: '/vendas'
+      preLoaderRoute: typeof VendasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExcecoesRoute: ExcecoesRoute,
+  ImportacoesRoute: ImportacoesRoute,
+  ProjecoesRoute: ProjecoesRoute,
+  RecebiveisRoute: RecebiveisRoute,
+  VendasRoute: VendasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
