@@ -34,8 +34,8 @@ export function KpiCard({
 }: {
   rotulo: string;
   valor: string;
-  detalhe?: string;
-  variacao?: number;
+  detalhe?: string | undefined;
+  variacao?: number | undefined;
   tom?: "neutro" | "positivo" | "alerta" | "critico" | "marca";
   icone?: ReactNode;
 }) {
