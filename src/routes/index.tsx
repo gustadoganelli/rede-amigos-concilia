@@ -346,7 +346,7 @@ function VisaoDiaria() {
                       {v.valorBrutoErp === null ? "—" : brl(v.valorBrutoErp)}
                     </TableCell>
                     <TableCell className="num text-right font-semibold text-destructive">
-                      {brl(dif)}
+                      {dif === 0 ? "—" : brl(dif)}
                     </TableCell>
                     <TableCell>
                       <StatusBadge status={v.status} />
