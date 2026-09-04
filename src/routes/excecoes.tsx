@@ -46,7 +46,7 @@ export const Route = createFileRoute("/excecoes")({
       },
     ],
   }),
-  component: Excecoes;
+  component: Excecoes,
 });
 
 const RESPONSAVEIS = ["Financeiro", "Contabilidade", "Tesouraria", "Fila da Rede"] as const;
